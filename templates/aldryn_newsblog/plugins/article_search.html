@@ -1,0 +1,16 @@
+{% load i18n %}
+<div class="plugin">
+    {# submission of this form will forward to "includes/search_results.html" #}
+    {# this form can also be submitted using ajax and "includes/search_results.html" is returned #}
+    <form class="blog-search-form" action="{{ query_url }}" method="get">
+        <div class="search-txt-container">
+            <input type="text" name="q" id="search-plugin-{{ instance.pk }}" placeholder="{% trans 'Search' %}" class="form-control search-txt">
+        </div>
+
+        <input type="hidden" name="max_articles" value="{{ instance.max_articles }}">
+
+        <div class="search-btn-container">
+            <button type="submit" class="btn btn-primary search-btn"><i class="fa fa-search" aria-hidden="true"></i></button>
+        </div>
+    </form>
+</div>

@@ -52,6 +52,12 @@ module.exports = {
         to: `${buildPath}/vendor/popper.js/`,
       },
     ]),
+    new CopyWebpackPlugin([
+      {
+        from: 'node_modules/@fortawesome/fontawesome-free-webfonts/',
+        to: `${buildPath}/vendor/fontawesome/`,
+      },
+    ]),
   ],
 
   module: {

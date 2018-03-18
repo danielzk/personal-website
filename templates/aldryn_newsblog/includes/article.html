@@ -1,0 +1,61 @@
+{% load i18n staticfiles thumbnail cms_tags apphooks_config_tags utils %}
+
+<article class="article
+    {% if article.is_featured %} featured{% endif %}
+    {% if not article.published %} unpublished{% endif %}">
+
+    {% if not detail_view %}
+        <h2>
+            <a href="{{ article.get_absolute_url }}">{% render_model article "title" %}</a>
+        </h2>
+    {% else %}
+        <h1>{% render_model article "title" %}</h1>
+    {% endif %}
+
+    <ul class="article-meta">
+        <li>
+            <i class="fa fa-comments" aria-hidden="true"></i>
+            <a href="{% get_settings 'DISQUS_DOMAIN' %}{{ article.get_absolute_url }}#disqus_thread" data-disqus-identifier="blog{{ LANGUAGE_CODE }}{{ article.id }}"></a>
+        </li>
+        <li data-toggle="tooltip" title="{{ article.publishing_date }}"><i class="fa fa-calendar" aria-hidden="true"></i> {{ article.publishing_date.date }}</li>
+
+        {% if article.author and article.author.name.strip %}
+            <li>
+                <i class="fa fa-user" aria-hidden="true"></i>
+                {{ article.author.name }}
+            </li>
+        {% endif %}
+
+        {% if article.categories.exists %}
+            <li>
+                <i class="fa fa-folder-open" aria-hidden="true"></i>
+                {% for category in article.categories.all %}
+                    <a href="{% namespace_url 'article-list-by-category' category.slug namespace=namespace default='' %}">{{ category.name }}</a>{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </li>
+        {% endif %}
+
+        {% if article.tags.exists %}
+            <li>
+                <i class="fa fa-tags" aria-hidden="true"></i>
+                {% for tag in article.tags.all %}
+                    <a href="{% namespace_url 'article-list-by-tag' tag=tag.slug namespace=namespace default='' %}">{{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </li>
+        {% endif %}
+    </ul>
+
+    {% if article.featured_image_id %}
+        <p>
+            <img src="{{ article.featured_image.url }}" alt="{{ article.featured_image.alt }}" width="{{ article.featured_image.width }}" height="{{ article.featured_image.height }}" class="img-responsive">
+        </p>
+    {% endif %}
+
+    {% render_model article "lead_in" "" "" "safe" %}
+
+    {% if detail_view %}
+        {% render_placeholder article.content language placeholder_language %}
+    {% else %}
+        <a href="{{ article.get_absolute_url }}" class="btn btn-primary">{% trans 'View post' %}</a>
+    {% endif %}
+</article>

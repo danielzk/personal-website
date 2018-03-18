@@ -1,0 +1,21 @@
+{% load i18n apphooks_config_tags tree %}
+
+<div class="plugin">
+    <h3>{% trans 'Categories' %}</h3>
+
+    <ul>
+        {% for category in categories %}
+            {% if category.name %}
+                <li{% if newsblog_category.id == category.id %} class="active"{% endif %}>
+                    {% get_tree_spacer category %}
+                    <a href="{% namespace_url "article-list-by-category" category.slug namespace=instance.app_config.namespace default='' %}">
+                        {{ category.name }}
+                        <span>({{ category.num_articles }})</span>
+                    </a>
+                </li>
+            {% endif %}
+        {% empty %}
+            <p>{% trans 'No items found.' %}</p>
+        {% endfor %}
+    </ul>
+</div>

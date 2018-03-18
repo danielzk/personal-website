@@ -14,6 +14,7 @@
     "makemessages": "i18next -r --directoryFilter !.build,!node_modules,!assets,!jest -o i18next/ -l es"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free-webfonts": "^1.0.4",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.3",
     "babel-loader": "^7.1.2",

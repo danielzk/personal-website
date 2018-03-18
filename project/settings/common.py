@@ -12,6 +12,8 @@ env = environ.Env(
     AWS_ACCESS_KEY_ID=(str, ''),
     DEBUG=(bool, False),
     LOAD_EXTERNAL_FILES=(bool, True),
+    DISQUS_DOMAIN=(str, ''),
+    DISQUS_SHORTNAME=(str, ''),
 )
 environ.Env.read_env(root('.env'))
 sys.path.append(root('apps'))
@@ -109,7 +111,10 @@ TEMPLATES = [
     },
 ]
 
-ALLOWABLE_TEMPLATE_SETTINGS = ('DEBUG', 'LOAD_EXTERNAL_FILES', 'PROJECT_DISPLAY_NAME')
+ALLOWABLE_TEMPLATE_SETTINGS = (
+    'DEBUG', 'LOAD_EXTERNAL_FILES', 'PROJECT_DISPLAY_NAME', 'DISQUS_DOMAIN',
+    'DISQUS_SHORTNAME',
+)
 
 HTML_MINIFY = not DEBUG
 
@@ -249,6 +254,13 @@ vars().update(EMAIL_CONFIG)
 CMS_TEMPLATES = [
     ('cms_templates/main.html', 'Main template'),
 ]
+
+# =============================================================================
+# Disqus
+# =============================================================================
+
+DISQUS_DOMAIN = env('DISQUS_DOMAIN')
+DISQUS_SHORTNAME = env('DISQUS_SHORTNAME')
 
 
 # =============================================================================

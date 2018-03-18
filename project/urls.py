@@ -8,6 +8,7 @@ from django.views.generic import TemplateView
 import debug_toolbar
 
 from main.views import bad_request, page_not_found, permission_denied, server_error
+from utils.aldryn_categories import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),

@@ -1,0 +1,20 @@
+{% load i18n apphooks_config_tags %}
+<div class="plugin">
+    <h3>{% trans 'Tags' %}</h3>
+
+    <ul class="blog-tags">{% spaceless %}
+        {% for tag in tags %}
+            {% if tag.name %}
+                <li{% if newsblog_tag.id == tag.id %} class="active"{% endif %}>
+                    <a href="{% namespace_url "article-list-by-tag" tag.slug namespace=instance.app_config.namespace default='' %}" class="label label-default">
+                        {{ tag.name }}
+                        <span>({{ tag.article_count }})</span>
+                    </a>
+                </li>
+            {% endif %}
+        {% empty %}
+            <p>{% trans 'No items found.' %}</p>
+        {% endfor %}
+        {% endspaceless %}
+    </ul>
+</div>
