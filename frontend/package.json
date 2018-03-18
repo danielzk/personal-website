@@ -1,0 +1,47 @@
+{
+  "name": "",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack --watch",
+    "build": "NODE_ENV=production webpack -p",
+    "build-dev": "webpack",
+    "test": "jest --config jest/config-test.json",
+    "review-tests": "eslint . && jest --config jest/config-review-tests.json",
+    "eslint": "eslint .",
+    "stylelint": "stylelint assets/sass/*.scss",
+    "makemessages": "i18next -r --directoryFilter !.build,!node_modules,!assets,!jest -o i18next/ -l es"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.3",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "bootstrap": "^4.0.0",
+    "clean-webpack-plugin": "^0.1.17",
+    "copy-webpack-plugin": "^4.3.0",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "i18next": "^10.2.1",
+    "i18next-browser-languagedetector": "^2.1.0",
+    "i18next-parser": "^0.12.0",
+    "jquery": "^3.2.1",
+    "node-sass": "^4.7.2",
+    "popper.js": "^1.14.1",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.1",
+    "webpack": "^3.10.0",
+    "webpack-bundle-tracker": "^0.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.13.1",
+    "jest": "^21.2.1",
+    "rosie": "^1.6.0",
+    "stylelint": "^8.4.0",
+    "stylelint-config-standard": "^18.0.0"
+  }
+}
