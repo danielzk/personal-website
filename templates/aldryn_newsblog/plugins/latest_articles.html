@@ -9,7 +9,7 @@
 
             <a href="{{ article.get_absolute_url }}">
                 <h3>{% render_model article "title" %}</h3>
-                <p><i class="fa fa-comments" aria-hidden="true"></i> <span class="disqus-comment-count" data-disqus-url="{% get_settings 'DISQUS_DOMAIN' %}{{ article.get_absolute_url }}" data-disqus-identifier="blog{{ LANGUAGE_CODE }}{{ article.id }}"></span> - <i class="fa fa-calendar" aria-hidden="true"></i> {{ article.publishing_date.date }}</p>
+                <p><i class="fas fa-comments" aria-hidden="true"></i> <span class="disqus-comment-count" data-disqus-url="{% get_settings 'DISQUS_DOMAIN' %}{{ article.get_absolute_url }}" data-disqus-identifier="blog{{ LANGUAGE_CODE }}{{ article.id }}"></span> - <i class="fas fa-calendar" aria-hidden="true"></i> {{ article.publishing_date.date }}</p>
             </a>
         </article>
     {% empty %}

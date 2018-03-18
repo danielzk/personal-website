@@ -1,5 +1,5 @@
 {% extends "aldryn_newsblog/base.html" %}
-{% load i18n cms_tags apphooks_config_tags utils %}
+{% load i18n cms_tags apphooks_config_tags utils social_share %}
 
 {% block title %}{% spaceless %}
     {{ article.title }}
@@ -15,7 +15,6 @@
     {% static_placeholder "newsblog_social" %}
 
     <div class="share">
-            {% comment %}
         {% trans 'Daniel Ramos published a new post:' as twitter_text_to_post %}
 
         {% post_to_facebook_url article.get_absolute_url as updated_context %}
@@ -26,22 +25,21 @@
 
         <div class="facebook-this">
             <a href="{{ facebook_url }}" target="_blank" class="btn btn-default btn-lg">
-                <i class="fa fa-facebook" aria-hidden="true"></i> Facebook
+                <i class="fab fa-facebook-f"></i> Facebook
             </a>
         </div>
 
         <div class="tweet-this">
             <a href="{{ tweet_url }}" class="meta-act-link meta-tweet btn btn-default btn-lg" target="_blank">
-                <i class="fa fa-twitter" aria-hidden="true"></i> Twitter
+                <i class="fab fa-twitter" aria-hidden="true"></i> Twitter
             </a>
         </div>
 
         <div class="gplus-this">
             <a href="{{ gplus_url }}" target="_blank" class="btn btn-default btn-lg">
-                <i class="fa fa-google-plus" aria-hidden="true"></i> Google+
+                <i class="fab fa-google-plus-g" aria-hidden="true"></i> Google+
             </a>
         </div>
-        {% endcomment %}
     </div>
 
     <nav aria-label="Pager">

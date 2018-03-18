@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'filer',
     'easy_thumbnails',
     'djangocms_link',
+    'django_social_share',
 
     'utils',
     'main',

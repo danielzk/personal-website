@@ -14,21 +14,21 @@
 
     <ul class="article-meta">
         <li>
-            <i class="fa fa-comments" aria-hidden="true"></i>
+            <i class="fas fa-comments" aria-hidden="true"></i>
             <a href="{% get_settings 'DISQUS_DOMAIN' %}{{ article.get_absolute_url }}#disqus_thread" data-disqus-identifier="blog{{ LANGUAGE_CODE }}{{ article.id }}"></a>
         </li>
-        <li data-toggle="tooltip" title="{{ article.publishing_date }}"><i class="fa fa-calendar" aria-hidden="true"></i> {{ article.publishing_date.date }}</li>
+        <li data-toggle="tooltip" title="{{ article.publishing_date }}"><i class="fas fa-calendar" aria-hidden="true"></i> {{ article.publishing_date.date }}</li>
 
         {% if article.author and article.author.name.strip %}
             <li>
-                <i class="fa fa-user" aria-hidden="true"></i>
+                <i class="fas fa-user" aria-hidden="true"></i>
                 {{ article.author.name }}
             </li>
         {% endif %}
 
         {% if article.categories.exists %}
             <li>
-                <i class="fa fa-folder-open" aria-hidden="true"></i>
+                <i class="fas fa-folder-open" aria-hidden="true"></i>
                 {% for category in article.categories.all %}
                     <a href="{% namespace_url 'article-list-by-category' category.slug namespace=namespace default='' %}">{{ category.name }}</a>{% if not forloop.last %}, {% endif %}
                 {% endfor %}
@@ -37,7 +37,7 @@
 
         {% if article.tags.exists %}
             <li>
-                <i class="fa fa-tags" aria-hidden="true"></i>
+                <i class="fas fa-tags" aria-hidden="true"></i>
                 {% for tag in article.tags.all %}
                     <a href="{% namespace_url 'article-list-by-tag' tag=tag.slug namespace=namespace default='' %}">{{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
                 {% endfor %}
