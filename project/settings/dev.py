@@ -1,3 +1,3 @@
 from .common import *
 
-CMS_CACHE_DURATIONS = 0
+CMS_PAGE_CACHE = False

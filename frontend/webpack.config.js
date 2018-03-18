@@ -83,6 +83,7 @@ module.exports = {
             {
               loader: 'sass-loader',
               options: {
+                includePaths: ['node_modules/bootstrap/scss/'],
                 outputStyle: 'compressed',
               },
             }
