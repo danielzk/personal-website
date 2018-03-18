@@ -12,6 +12,7 @@ from main.views import bad_request, page_not_found, permission_denied, server_er
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^hijack/', include('hijack.urls')),
+    url(r'^', include('cms.urls')),
 ]
 
 if settings.DEBUG:

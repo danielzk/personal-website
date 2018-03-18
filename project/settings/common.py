@@ -29,6 +29,7 @@ PROJECT_ALIAS = 'project'
 PROJECT_DISPLAY_NAME = 'Project'
 
 INSTALLED_APPS = [
+    'djangocms_admin_style',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,12 +44,18 @@ INSTALLED_APPS = [
     'webpack_loader',
     'widget_tweaks',
     'parler',
+    'cms',
+    'menus',
+    'treebeard',
+    'sekizai',
+    'djangocms_text_ckeditor',
 
     'utils',
     'main',
 ]
 
 MIDDLEWARE = [
+    'cms.middleware.utils.ApphookReloadMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -56,9 +63,14 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'htmlmin.middleware.HtmlMinifyMiddleware',
     'htmlmin.middleware.MarkRequestMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'cms.middleware.user.CurrentUserMiddleware',
+    'cms.middleware.page.CurrentPageMiddleware',
+    'cms.middleware.toolbar.ToolbarMiddleware',
+    'cms.middleware.language.LanguageCookieMiddleware',
 ]
 
 
@@ -79,6 +91,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.i18n',
+                'cms.context_processors.cms_settings',
+                'sekizai.context_processors.sekizai',
             ],
         },
     },
@@ -116,8 +131,6 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
     {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
-    {'NAME': 'users.validators.AtLeastOneDigitPasswordValidator'},
-    {'NAME': 'users.validators.AtLeastOneLetterPasswordValidator'},
 ]
 
 LOGIN_REDIRECT_URL = '/'
@@ -207,6 +220,14 @@ HIJACK_ALLOW_GET_REQUESTS = True
 EMAIL_CONFIG = env.email_url('EMAIL_URL', default='smtp://user@:password@localhost:25')
 vars().update(EMAIL_CONFIG)
 
+
+# =============================================================================
+# CMS
+# =============================================================================
+
+CMS_TEMPLATES = [
+    ('cms_templates/main.html', 'Main template'),
+]
 
 # =============================================================================
 # General
