@@ -1,0 +1,9 @@
+{% load menu_tags cms_tags %}
+
+<ul class="navbar-nav mr-auto">
+  {% for child in children %}
+    <li class="nav-item {% if child.selected or child.ancestor %}active{% endif %}">
+      <a href="{{ child.get_absolute_url }}" class="nav-link" >{{ child.get_menu_title }}</a>
+    </li>
+  {% endfor %}
+</ul>

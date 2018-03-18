@@ -40,7 +40,11 @@
 <body id="{% block body_id %}default{% endblock %}" class="{% block body_class %}default{% endblock %}">
   {% cms_toolbar %}
 
+  {% include 'includes/navbar.html' %}
+
   {% block layout %}{% endblock %}
+
+  {% include 'includes/footer.html' %}
 
   {% if LOAD_EXTERNAL_FILES %}
     <script src="//code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

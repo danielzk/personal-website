@@ -25,7 +25,7 @@ def custom_get_categories(self, request):
 
     categories = Category.objects.filter(filter_).distinct().annotate(
         num_articles=Count('article'))
-    print(categories.count())
+
     return categories
 
 

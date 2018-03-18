@@ -15,7 +15,7 @@
     <ul class="article-meta">
         <li>
             <i class="fas fa-comments" aria-hidden="true"></i>
-            <a href="{% get_settings 'DISQUS_DOMAIN' %}{{ article.get_absolute_url }}#disqus_thread" data-disqus-identifier="blog{{ LANGUAGE_CODE }}{{ article.id }}"></a>
+            <a href="{% get_settings 'DISQUS_DOMAIN' %}{{ article.get_absolute_url }}#disqus_thread" data-disqus-identifier="blog{{ article.id }}"></a>
         </li>
         <li data-toggle="tooltip" title="{{ article.publishing_date }}"><i class="fas fa-calendar" aria-hidden="true"></i> {{ article.publishing_date.date }}</li>
 
