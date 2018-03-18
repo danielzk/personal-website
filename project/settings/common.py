@@ -49,6 +49,17 @@ INSTALLED_APPS = [
     'treebeard',
     'sekizai',
     'djangocms_text_ckeditor',
+    'aldryn_apphooks_config',
+    'aldryn_categories',
+    'aldryn_common',
+    'aldryn_newsblog',
+    'aldryn_people',
+    'aldryn_translation_tools',
+    'sortedm2m',
+    'taggit',
+    'filer',
+    'easy_thumbnails',
+    'djangocms_link',
 
     'utils',
     'main',
@@ -63,7 +74,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
     'htmlmin.middleware.HtmlMinifyMiddleware',
     'htmlmin.middleware.MarkRequestMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
@@ -158,6 +168,10 @@ PARLER_LANGUAGES = {
         {'code': 'en',},
         {'code': 'es',},
     ),
+    'default': {
+        'fallbacks': ['es'],
+        'hide_untranslated': False,
+    }
 }
 
 
@@ -203,6 +217,13 @@ WEBPACK_LOADER = {
 
 LOAD_EXTERNAL_FILES = env('LOAD_EXTERNAL_FILES')
 
+THUMBNAIL_HIGH_RESOLUTION = True
+THUMBNAIL_PROCESSORS = (
+    'easy_thumbnails.processors.colorspace',
+    'easy_thumbnails.processors.autocrop',
+    'filer.thumbnail_processors.scale_and_crop_with_subject_location',
+    'easy_thumbnails.processors.filters'
+)
 
 # =============================================================================
 # Hijack
@@ -228,6 +249,7 @@ vars().update(EMAIL_CONFIG)
 CMS_TEMPLATES = [
     ('cms_templates/main.html', 'Main template'),
 ]
+
 
 # =============================================================================
 # General
