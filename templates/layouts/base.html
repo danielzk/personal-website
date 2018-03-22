@@ -1,6 +1,6 @@
 {% load static i18n webpack_loader cms_tags sekizai_tags utils %}
 {% get_current_language as LANGUAGE_CODE %}
-{% get_settings "LOAD_EXTERNAL_FILES" as LOAD_EXTERNAL_FILES %}
+{% get_settings 'LOAD_EXTERNAL_FILES' as LOAD_EXTERNAL_FILES %}
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE }}">
 <head>
@@ -8,31 +8,25 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>{% block title %}{% page_attribute "page_title" %}{% endblock %} - Daniel Ramos</title>
+  <title>{% block title %}{% page_attribute 'page_title' %}{% endblock %} - Daniel Ramos</title>
 
-  {% comment %}
   <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/favicon/apple-touch-icon.png' %}">
   <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon/favicon-32x32.png' %}">
   <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon/favicon-16x16.png' %}">
-  <link rel="manifest" href="{% static 'img/favicon/manifest.json' %}">
-  <link rel="mask-icon" href="{% static 'img/favicon/safari-pinned-tab.svg' %}" color="#ffffff">
-  <meta name="theme-color" content="#ffffff">
-  {% endcomment %}
 
   {% if LOAD_EXTERNAL_FILES %}
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.8/css/solid.css" integrity="sha384-v2Tw72dyUXeU3y4aM2Y0tBJQkGfplr39mxZqlTBDUZAb9BGoC40+rdFCG0m10lXk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/brands.css" integrity="sha384-IiIL1/ODJBRTrDTFk/pW8j0DUI5/z9m1KYsTm/RjZTNV8RHLGZXkUDwgRRbbQ+Jh" crossorigin="anonymous">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.8/css/fontawesome.css" integrity="sha384-q3jl8XQu1OpdLgGFvNRnPdj5VIlCvgsDQTQB6owSOHWlAurxul7f+JpUOVdAiJ5P" crossorigin="anonymous">
   {% else %}
+    {% comment %}{% render_bundle 'fonts' 'css' %}{% endcomment %}
     <link href="{% static 'vendor/fontawesome/css/fa-solid.css' %}" rel="stylesheet">
     <link href="{% static 'vendor/fontawesome/css/fa-brands.css' %}" rel="stylesheet">
     <link href="{% static 'vendor/fontawesome/css/fontawesome.css' %}" rel="stylesheet">
-    {% render_bundle 'fonts' 'css' %}
   {% endif %}
 
   {% render_bundle 'styles' 'css' %}
-  {% render_block "css" %}
+  {% render_block 'css' %}
   {% block extra_css %}{% endblock %}
 </head>
 <body id="{% block body_id %}default{% endblock %}" class="{% block body_class %}default{% endblock %}">
@@ -48,13 +42,17 @@
     <script src="//code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/brands.js" integrity="sha384-sCI3dTBIJuqT6AwL++zH7qL8ZdKaHpxU43dDt9SyOzimtQ9eyRhkG3B7KMl6AO19" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
   {% else %}
     <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
     <script src="{% static 'vendor/popper.js/popper.min.js' %}"></script>
     <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
   {% endif %}
 
-  {% render_block "js" %}
+  {% render_block 'js' %}
   {% block extra_js %}{% endblock %}
 </body>
 </html>

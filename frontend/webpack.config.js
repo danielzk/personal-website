@@ -36,6 +36,12 @@ module.exports = {
     ]),
     new CopyWebpackPlugin([
       {
+        from: 'assets/img/',
+        to: `${buildPath}/img/`,
+      },
+    ]),
+    new CopyWebpackPlugin([
+      {
         from: 'node_modules/jquery/dist/',
         to: `${buildPath}/vendor/jquery/`,
       },

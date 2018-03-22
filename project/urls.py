@@ -13,7 +13,6 @@ from utils.aldryn_categories import *
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^hijack/', include('hijack.urls')),
-    url(r'^', include('cms.urls')),
 ]
 
 if settings.DEBUG:
@@ -26,6 +25,10 @@ if settings.DEBUG:
         url(r'^error404/$', page_not_found),
         url(r'^error500/$', server_error),
     ]
+
+urlpatterns += [
+    url(r'^', include('cms.urls')),
+]
 
 admin.site.site_header = settings.PROJECT_DISPLAY_NAME
 

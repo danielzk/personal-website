@@ -1,18 +1,20 @@
 {% load i18n cms_tags utils %}
-<div class="plugin">
-    <h3>{% trans 'Latest posts' %}</h3>
+<div class="card plugin latest-articles">
+    <div class="card-header">
+        {% trans 'Latest posts' %}
+    </div>
+    <div class="card-body">
+        {% for article in article_list %}
+            <article class="article article-min
+                {% if article.is_featured %} featured{% endif %}
+                {% if not article.published %} unpublished{% endif %}">
 
-    {% for article in article_list %}
-        <article class="article article-min
-            {% if article.is_featured %} featured{% endif %}
-            {% if not article.published %} unpublished{% endif %}">
-
-            <a href="{{ article.get_absolute_url }}">
-                <h4>La importancia de los tests automatizados</h4>
-                <p><i class="fas fa-comments" aria-hidden="true"></i> <span class="disqus-comment-count" data-disqus-url="{% get_settings 'DISQUS_DOMAIN' %}{{ article.get_absolute_url }}" data-disqus-identifier="blog{{ article.id }}"></span> - <i class="fas fa-calendar" aria-hidden="true"></i> {{ article.publishing_date.date }}</p>
-            </a>
-        </article>
-    {% empty %}
-        <p>{% trans "No items found." %}</p>
-    {% endfor %}
+                <a href="{{ article.get_absolute_url }}">
+                    {% render_model article "title" %}
+                </a>
+            </article>
+        {% empty %}
+            <p>{% trans "No items found." %}</p>
+        {% endfor %}
+    </div>
 </div>

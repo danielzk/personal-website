@@ -13,20 +13,7 @@ def custom_blog_feeds_title(self):
 
 
 def custom_get_categories(self, request):
-    filter_ = (
-        Q(article__categories=F('id')) &
-        Q(article__app_config=self.app_config)
-    )
-    if not self.get_edit_mode(request):
-        filter_ |= (
-            Q(article__is_published=True) &
-            Q(article__publishing_date__gte=datetime.now())
-        )
-
-    categories = Category.objects.filter(filter_).distinct().annotate(
-        num_articles=Count('article'))
-
-    return categories
+    return Category.objects.all().annotate(num_articles=Count('article')).distinct()
 
 
 LatestArticlesFeed.title = custom_blog_feeds_title

@@ -70,6 +70,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'cms.middleware.utils.ApphookReloadMiddleware',
+    'utils.middleware.LangMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

@@ -4,25 +4,23 @@
 {% block body_id %}blog{% endblock %}
 
 {% block content %}
-    <div class="container content-container">
-        <div class="row blog-row">
-            <div class="col-md-9 blog-content bottom-padding">
-                {% block newsblog_content %}
-                    {# article_list.html and article_detail.html extend this template #}
-                {% endblock %}
-            </div>
-            <div class="col-md-3 blog-sidebar bottom-padding">
-                <a href="{% namespace_url "article-list-feed" %}" class="rss-link"><i class="fas fa-rss-square" aria-hidden="true"></i> Feed RSS</a>
-                {% static_placeholder 'blog_sidebar' %}
-            </div>
+    <div class="row blog-row">
+        <div class="col-md-8 blog-content bottom-padding">
+            {% block newsblog_content %}
+                {# article_list.html and article_detail.html extend this template #}
+            {% endblock %}
+        </div>
+        <div class="col-md-4 blog-sidebar bottom-padding">
+            <a href="{% namespace_url "article-list-feed" %}" class="rss-link"><i class="fas fa-rss-square" aria-hidden="true"></i> Feed RSS</a>
+            {% static_placeholder 'blog_sidebar' %}
         </div>
     </div>
 {% endblock content %}
 
-{% block extra_js %}
+{% comment %}
     {% get_settings 'DISQUS_DOMAIN' as DISQUS_DOMAIN %}
     {% get_settings 'DISQUS_SHORTNAME' as DISQUS_SHORTNAME %}
     {% if DISQUS_DOMAIN and DISQUS_SHORTNAME %}
         <script id="dsq-count-scr" src="//{{ DISQUS_SHORTNAME }}.disqus.com/count.js" async></script>
     {% endif %}
-{% endblock %}
+{% endcomment %}

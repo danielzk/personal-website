@@ -1,20 +1,22 @@
 {% load i18n apphooks_config_tags tree %}
-
-<div class="plugin">
-    <h3>{% trans 'Categories' %}</h3>
-
-    <ul>
-        {% for category in categories %}
-            {% if category.name %}
-                <li{% if newsblog_category.id == category.id %} class="active"{% endif %} style="margin-left: calc(40px * {% get_depth_spacer category %});">
-                    <a href="{% namespace_url "article-list-by-category" category.slug namespace=instance.app_config.namespace default='' %}">
-                        {{ category.name }}
-                        <span>({{ category.num_articles }})</span>
-                    </a>
-                </li>
-            {% endif %}
-        {% empty %}
-            <p>{% trans 'No items found.' %}</p>
-        {% endfor %}
-    </ul>
+<div class="card plugin">
+    <div class="card-header">
+        {% trans 'Categories' %}
+    </div>
+    <div class="card-body">
+        <ul>
+            {% for category in categories %}
+                {% if category.name %}
+                    <li{% if newsblog_category.id == category.id %} class="active"{% endif %} style="margin-left: calc(40px * {% get_depth_spacer category %});">
+                        <a href="{% namespace_url "article-list-by-category" category.slug namespace=instance.app_config.namespace default='' %}">
+                            {{ category.name }}
+                            <span>({{ category.num_articles }})</span>
+                        </a>
+                    </li>
+                {% endif %}
+            {% empty %}
+                <p>{% trans 'No items found.' %}</p>
+            {% endfor %}
+        </ul>
+    </div>
 </div>

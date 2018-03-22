@@ -10,7 +10,7 @@
 
     {% for article in article_list %}
         {% include "aldryn_newsblog/includes/article.html" %}
-        <hr>
+        <br>
     {% empty %}
         <h2>{% trans "No items found." %}</h2>
     {% endfor %}
