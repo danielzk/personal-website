@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     'easy_thumbnails',
     'djangocms_link',
     'django_social_share',
+    'djangocms_highlightjs',
 
     'utils',
     'main',
@@ -256,6 +257,11 @@ vars().update(EMAIL_CONFIG)
 CMS_TEMPLATES = [
     ('cms_templates/main.html', 'Main template'),
 ]
+
+HIGHLIGHT_THEMES = (
+    ('androidstudio', 'Android Studio'),
+)
+
 
 # =============================================================================
 # Disqus

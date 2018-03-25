@@ -42,6 +42,12 @@ module.exports = {
     ]),
     new CopyWebpackPlugin([
       {
+        from: 'assets/vendor/',
+        to: `${buildPath}/vendor/`,
+      },
+    ]),
+    new CopyWebpackPlugin([
+      {
         from: 'node_modules/jquery/dist/',
         to: `${buildPath}/vendor/jquery/`,
       },

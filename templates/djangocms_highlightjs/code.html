@@ -1,0 +1,20 @@
+{% load staticfiles sekizai_tags %}
+
+{% addtoblock "css" %}
+  <link rel="stylesheet" href="{% static 'vendor/' %}{{ theme }}">
+{% endaddtoblock %}
+
+{% addtoblock "js" %}
+  <script src="{% static highlight %}"></script>
+{% endaddtoblock %}
+
+{% addtoblock "js" %}
+  <script>
+    $(document).ready(function() {
+      $('pre#highlight-{{ instance.pk }} code').each(function(i, e) {hljs.highlightBlock(e)});
+    });
+  </script>
+{% endaddtoblock %}
+
+<pre id="highlight-{{ instance.pk }}" class="highlight-js">{% if instance.filename %}<strong class="filename">{{ instance.filename }}</strong>{% endif %}<code{% if instance.code_language %} class="{{ instance.code_language }}" {% endif %}>{{ instance.body }}</code>
+</pre>
