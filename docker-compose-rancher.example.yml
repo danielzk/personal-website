@@ -1,0 +1,33 @@
+version: '3.5'
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - 8000:80
+    volumes:
+      - nginx:/etc/nginx/conf.d/
+      - gunicorn:/gunicorn/
+    depends_on:
+      - web
+  web:
+    image: danielrz/personal-website:latest
+    entrypoint: bash -c "cp -r install/nginx/conf.d/default.conf /nginx/ && npm run build --prefix=frontend && python manage.py collectstatic --noinput && python manage.py migrate && gunicorn --bind unix:/gunicorn/project.sock project.wsgi"
+    volumes:
+      - gunicorn:/gunicorn/
+      - nginx:/nginx/
+    environment:
+      - ADMINS=admin1:admin1@example.com,admin2:admin2@example.com
+      - AWS_ACCESS_KEY_ID=
+      - AWS_SECRET_ACCESS_KEY=
+      - AWS_STORAGE_BUCKET_NAME=
+      - DATABASE_URL=psql://user:pass@127.0.0.1:5432/database
+      - DEBUG=False
+      - DJANGO_SETTINGS_MODULE=project.settings.prod
+      - EMAIL_URL=smtp://user@:password@localhost:25
+      - LOAD_EXTERNAL_FILES=True
+      - SECRET_KEY=50_characters_random_string
+      - DISQUS_DOMAIN=http://example.com
+      - DISQUS_SHORTNAME=example
+volumes:
+  gunicorn:
+  nginx:
