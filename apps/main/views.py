@@ -16,3 +16,7 @@ def page_not_found(request, exception=None):
 
 def server_error(request):
     return render(request, 'errors/server_error.html', status=500)
+
+
+def simulated_error(request):
+    raise Exception('Simulated error')
