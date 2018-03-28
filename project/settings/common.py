@@ -14,6 +14,8 @@ env = environ.Env(
     LOAD_EXTERNAL_FILES=(bool, True),
     DISQUS_DOMAIN=(str, ''),
     DISQUS_SHORTNAME=(str, ''),
+    DEFAULT_FROM_EMAIL=(str, 'webmaster@localhost'),
+    SERVER_EMAIL=(str, 'root@localhost'),
 )
 environ.Env.read_env(root('.env'))
 sys.path.append(root('apps'))
@@ -248,6 +250,9 @@ HIJACK_ALLOW_GET_REQUESTS = True
 
 EMAIL_CONFIG = env.email_url('EMAIL_URL', default='smtp://user@:password@localhost:25')
 vars().update(EMAIL_CONFIG)
+
+DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL')
+SERVER_EMAIL = env('SERVER_EMAIL')
 
 
 # =============================================================================
