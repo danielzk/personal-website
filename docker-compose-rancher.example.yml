@@ -24,6 +24,8 @@ services:
       - DEBUG=False
       - DJANGO_SETTINGS_MODULE=project.settings.prod
       - EMAIL_URL=smtp://user@:password@localhost:25
+      - DEFAULT_FROM_EMAIL=webmaster@example.com
+      - SERVER_EMAIL=root@example.com
       - LOAD_EXTERNAL_FILES=True
       - SECRET_KEY=50_characters_random_string
       - DISQUS_DOMAIN=http://example.com

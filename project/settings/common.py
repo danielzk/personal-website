@@ -69,6 +69,7 @@ INSTALLED_APPS = [
 
     'utils',
     'main',
+    'contact',
 ]
 
 MIDDLEWARE = [
@@ -253,6 +254,10 @@ vars().update(EMAIL_CONFIG)
 
 DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL')
 SERVER_EMAIL = env('SERVER_EMAIL')
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 # =============================================================================

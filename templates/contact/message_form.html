@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+{% load i18n cms_tags widget_tweaks %}
+
+{% block title %}{% trans "Contact" %}{% endblock %}
+
+{% block content %}
+  <div class="container content-container bottom-padding">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>{% trans "Contact" %}</h1>
+      </div>
+    </div>
+
+    <form action="" method="post">{% csrf_token %}
+      <div class="row">
+        <div class="col-md-5">
+          <div class="form-group">
+            {{ form.name.errors }}
+            <label for="{{ form.name.id_for_label }}">{{ form.name.label }}</label>
+            {% render_field form.name class+="form-control" %}
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-5">
+          <div class="form-group">
+            {{ form.email.errors }}
+            <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+            {% render_field form.email class+="form-control" %}
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            {{ form.message.errors }}
+            <label for="{{ form.message.id_for_label }}">{{ form.message.label }}</label>
+            {% render_field form.message class+="form-control" %}
+          </div>
+        </div>
+      </div>
+
+      <input class="btn btn-primary" type="submit" value="{% trans "Send" %}"/>
+    </form>
+  </div>
+{% endblock %}
