@@ -11,8 +11,6 @@ Message:
 
 
 def on_message_saved(sender, instance, created, **kwargs):
-    print(created)
-    print('AAAAAAAAAAAAAAAAAAAAAAAAAAA')
     if created:
         recipients = [email for admin, email in settings.ADMINS]
         send_mail(
