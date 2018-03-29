@@ -1,0 +1,186 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-03-29 09:23+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: apps/contact/apps.py:8 apps/contact/cms_apps.py:11
+#: templates/contact/message_form.html:4 templates/contact/message_form.html:10
+msgid "Contact"
+msgstr "Contacto"
+
+#: apps/contact/models.py:8
+msgid "Name"
+msgstr "Nombre"
+
+#: apps/contact/models.py:9
+msgid "Email"
+msgstr "Correo electrónico"
+
+#: apps/contact/models.py:10 apps/contact/models.py:13
+msgid "Message"
+msgstr "Mensaje"
+
+#: apps/contact/models.py:14
+msgid "Messages"
+msgstr "Mensajes"
+
+#: apps/contact/signals.py:17
+msgid "NEW MESSAGE - {}"
+msgstr "NUEVO MENSAJE - {}"
+
+#: apps/utils/aldryn_categories.py:12
+msgid "Posts on {}"
+msgstr "Posts en {}"
+
+#: apps/utils/models.py:32 apps/utils/models.py:53
+msgid "Created at"
+msgstr "Creado el"
+
+#: apps/utils/models.py:33 apps/utils/models.py:54
+msgid "Updated at"
+msgstr "Actualizado el"
+
+#: project/settings/common.py:171
+msgid "English"
+msgstr "Inglés"
+
+#: project/settings/common.py:172
+msgid "Spanish"
+msgstr "Español"
+
+#: templates/aldryn_newsblog/article_detail.html:19
+msgid "Previous post"
+msgstr "Post anterior"
+
+#: templates/aldryn_newsblog/article_detail.html:22
+msgid "Next post"
+msgstr "Siguiente post"
+
+#: templates/aldryn_newsblog/article_detail.html:27
+msgid "Daniel Ramos published a new post:"
+msgstr "Daniel Ramos publicó un nuevo post:"
+
+#: templates/aldryn_newsblog/article_detail.html:33
+msgid "Share:"
+msgstr "Compartir"
+
+#: templates/aldryn_newsblog/article_list.html:15
+#: templates/aldryn_newsblog/plugins/categories.html:18
+#: templates/aldryn_newsblog/plugins/featured_articles.html:13
+#: templates/aldryn_newsblog/plugins/latest_articles.html:17
+#: templates/aldryn_newsblog/plugins/tags.html:18
+msgid "No items found."
+msgstr "No se encontraron elementos"
+
+#: templates/aldryn_newsblog/includes/article.html:60
+msgid "Continue reading"
+msgstr "Seguir leyendo"
+
+#: templates/aldryn_newsblog/includes/search_results.html:7
+msgid "Enter a query above"
+msgstr "Ingresar una consulta arriba"
+
+#: templates/aldryn_newsblog/includes/search_results.html:9
+#, python-format
+msgid "Most recent posts containing \"<strong>%(query)s</strong>\""
+msgstr "Posts más recientes para \"<strong>%(query)s</strong>\""
+
+#: templates/aldryn_newsblog/includes/search_results.html:18
+msgid "No posts found"
+msgstr "No se encontraron posts"
+
+#: templates/aldryn_newsblog/plugins/archive.html:8
+msgid "Archive"
+msgstr "Archivo"
+
+#: templates/aldryn_newsblog/plugins/archive.html:27
+#: templates/aldryn_newsblog/plugins/authors.html:9
+#: templates/aldryn_newsblog/plugins/related_articles.html:11
+msgid "No items available"
+msgstr "No se encontraron elementos"
+
+#: templates/aldryn_newsblog/plugins/article_search.html:7
+#: templates/aldryn_newsblog/plugins/article_search.html:8
+msgid "Search"
+msgstr "Buscar"
+
+#: templates/aldryn_newsblog/plugins/categories.html:4
+msgid "Categories"
+msgstr "Categorías"
+
+#: templates/aldryn_newsblog/plugins/featured_articles.html:3
+msgid "Featured posts"
+msgstr "Posts destacados"
+
+#: templates/aldryn_newsblog/plugins/latest_articles.html:4
+msgid "Latest posts"
+msgstr "Últimos posts"
+
+#: templates/aldryn_newsblog/plugins/related_articles.html:8
+msgid "by"
+msgstr "por"
+
+#: templates/aldryn_newsblog/plugins/tags.html:4
+msgid "Tags"
+msgstr "Etiquetas"
+
+#: templates/contact/message_form.html:45
+msgid "Send"
+msgstr "Enviar"
+
+#: templates/contact/success.html:4
+msgid "Thanks"
+msgstr "Gracias"
+
+#: templates/contact/success.html:10
+msgid "Message sent"
+msgstr "Mensaje enviado"
+
+#: templates/contact/success.html:11
+msgid "Your message has been sent successfully."
+msgstr "Tu mensaje ha sido enviado correctamente."
+
+#: templates/contact/success.html:12
+msgid "Back to home"
+msgstr "Volver al inicio"
+
+#: templates/errors/bad_request.html:4 templates/errors/bad_request.html:7
+msgid "Bad request"
+msgstr "Solicitud incorrecta"
+
+#: templates/errors/page_not_found.html:4
+#: templates/errors/page_not_found.html:7
+msgid "Page not found"
+msgstr "Página no encontrada"
+
+#: templates/errors/permission_denied.html:4
+#: templates/errors/permission_denied.html:7
+msgid "Permission denied"
+msgstr "Permiso denegado"
+
+#: templates/errors/server_error.html:4 templates/errors/server_error.html:7
+msgid "Server error"
+msgstr "Error del servidor"
+
+#: templates/includes/pagination.html:13
+msgid "Previous"
+msgstr "Anterior"
+
+#: templates/includes/pagination.html:49
+msgid "Next"
+msgstr "Siguiente"
