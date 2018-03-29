@@ -22,6 +22,6 @@ def on_message_saved(sender, instance, created, **kwargs):
                 message=instance.message
             ),
             settings.DEFAULT_FROM_EMAIL,
-            [recipients],
+            recipients,
             fail_silently=True,
         )
