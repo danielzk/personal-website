@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-29 09:23+0000\n"
+"POT-Creation-Date: 2018-03-29 12:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -63,42 +63,45 @@ msgstr "Inglés"
 msgid "Spanish"
 msgstr "Español"
 
-#: templates/aldryn_newsblog/article_detail.html:19
+#: templates/aldryn_newsblog/article_detail.html:14
 msgid "Previous post"
 msgstr "Post anterior"
 
-#: templates/aldryn_newsblog/article_detail.html:22
+#: templates/aldryn_newsblog/article_detail.html:19
 msgid "Next post"
 msgstr "Siguiente post"
 
-#: templates/aldryn_newsblog/article_detail.html:27
+#: templates/aldryn_newsblog/article_detail.html:25
 msgid "Daniel Ramos published a new post:"
 msgstr "Daniel Ramos publicó un nuevo post:"
 
-#: templates/aldryn_newsblog/article_detail.html:33
+#: templates/aldryn_newsblog/article_detail.html:31
 msgid "Share:"
 msgstr "Compartir"
 
 #: templates/aldryn_newsblog/article_list.html:15
+#: templates/aldryn_newsblog/plugins/archive.html:29
+#: templates/aldryn_newsblog/plugins/authors.html:10
 #: templates/aldryn_newsblog/plugins/categories.html:18
-#: templates/aldryn_newsblog/plugins/featured_articles.html:13
-#: templates/aldryn_newsblog/plugins/latest_articles.html:17
-#: templates/aldryn_newsblog/plugins/tags.html:18
-msgid "No items found."
-msgstr "No se encontraron elementos"
+#: templates/aldryn_newsblog/plugins/featured_articles.html:11
+#: templates/aldryn_newsblog/plugins/latest_articles.html:14
+#: templates/aldryn_newsblog/plugins/related_articles.html:11
+#: templates/aldryn_newsblog/plugins/tags.html:19
+msgid "No items found"
+msgstr "No hay elementos"
 
-#: templates/aldryn_newsblog/includes/article.html:60
+#: templates/aldryn_newsblog/includes/article.html:59
 msgid "Continue reading"
 msgstr "Seguir leyendo"
 
 #: templates/aldryn_newsblog/includes/search_results.html:7
 msgid "Enter a query above"
-msgstr "Ingresar una consulta arriba"
+msgstr "Ingrese una consulta arriba"
 
 #: templates/aldryn_newsblog/includes/search_results.html:9
-#, python-format
-msgid "Most recent posts containing \"<strong>%(query)s</strong>\""
-msgstr "Posts más recientes para \"<strong>%(query)s</strong>\""
+#, fuzzy, python-format
+msgid "Results for \"<strong>%(query)s</strong>\""
+msgstr "Resultados para \"<strong>%(query)s</strong>\""
 
 #: templates/aldryn_newsblog/includes/search_results.html:18
 msgid "No posts found"
@@ -107,12 +110,6 @@ msgstr "No se encontraron posts"
 #: templates/aldryn_newsblog/plugins/archive.html:8
 msgid "Archive"
 msgstr "Archivo"
-
-#: templates/aldryn_newsblog/plugins/archive.html:27
-#: templates/aldryn_newsblog/plugins/authors.html:9
-#: templates/aldryn_newsblog/plugins/related_articles.html:11
-msgid "No items available"
-msgstr "No se encontraron elementos"
 
 #: templates/aldryn_newsblog/plugins/article_search.html:7
 #: templates/aldryn_newsblog/plugins/article_search.html:8
@@ -123,7 +120,7 @@ msgstr "Buscar"
 msgid "Categories"
 msgstr "Categorías"
 
-#: templates/aldryn_newsblog/plugins/featured_articles.html:3
+#: templates/aldryn_newsblog/plugins/featured_articles.html:4
 msgid "Featured posts"
 msgstr "Posts destacados"
 
@@ -135,7 +132,7 @@ msgstr "Últimos posts"
 msgid "by"
 msgstr "por"
 
-#: templates/aldryn_newsblog/plugins/tags.html:4
+#: templates/aldryn_newsblog/plugins/tags.html:5
 msgid "Tags"
 msgstr "Etiquetas"
 
