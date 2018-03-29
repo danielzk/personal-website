@@ -37,9 +37,7 @@
           <span>
             <i class="fas fa-folder-open" aria-hidden="true"></i>
             {% for category in article.categories.all %}
-              <a href="{% namespace_url "article-list-by-category" category.slug namespace=namespace default="" %}">
-                {{ category.name }}
-              </a>{% if not forloop.last %}, {% endif %}
+              <a href="{% namespace_url "article-list-by-category" category.slug namespace=namespace default="" %}">{{ category.name }}</a>{% if not forloop.last %}, {% endif %}
             {% endfor %}
           </span>
         {% endif %}
@@ -48,9 +46,7 @@
           <span>
             <i class="fas fa-tags" aria-hidden="true"></i>
             {% for tag in article.tags.all %}
-              <a href="{% namespace_url "article-list-by-tag" tag=tag.slug namespace=namespace default="" %}">
-                {{ tag.name }}
-              </a>{% if not forloop.last %}, {% endif %}
+              <a href="{% namespace_url "article-list-by-tag" tag=tag.slug namespace=namespace default="" %}">{{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
             {% endfor %}
           </span>
         {% endif %}

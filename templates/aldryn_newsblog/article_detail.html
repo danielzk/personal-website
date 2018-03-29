@@ -10,14 +10,10 @@
 
   <ul class="pagination justify-content-center mb-4">
     <li class="page-item {% if not prev_article %}disabled{% endif %}">
-      <a href="{% if prev_article %}{{ prev_article.get_absolute_url }}{% endif %}" class="page-link">
-        &laquo; {% trans "Previous post" %}
-      </a>
+      <a href="{% if prev_article %}{{ prev_article.get_absolute_url }}{% endif %}" class="page-link">&laquo; {% trans "Previous post" %}</a>
     </li>
     <li class="page-item {% if not next_article %}disabled{% endif %}">
-      <a href="{% if next_article %}{{ next_article.get_absolute_url }}{% endif %}" class="page-link">
-        {% trans "Next post" %} &raquo;
-      </a>
+      <a href="{% if next_article %}{{ next_article.get_absolute_url }}{% endif %}" class="page-link">{% trans "Next post" %} &raquo;</a>
     </li>
   </ul>
 
