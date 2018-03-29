@@ -1,11 +1,13 @@
 {% load i18n %}
 
-<ul>
+<div class="plugin">
+  <ul>
     {% for author in authors_list %}
-        <li>
-            {% include "aldryn_newsblog/includes/author.html" with author_view="true" namespace=instance.app_config.namespace %}
-        </li>
+      <li>
+        {% include "aldryn_newsblog/includes/author.html" with author_view="true" namespace=instance.app_config.namespace %}
+      </li>
     {% empty %}
-        <li>{% trans "No items available" %}</li>
+      <li>{% trans "No items found" %}</li>
     {% endfor %}
-</ul>
+  </ul>
+</div>

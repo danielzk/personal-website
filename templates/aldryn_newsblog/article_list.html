@@ -2,18 +2,18 @@
 {% load i18n %}
 
 {% block newsblog_content %}
-    {% if newsblog_category %}
-        <h1>{{ newsblog_category }}</h1>
-    {% elif newsblog_tag %}
-        <h1>{{ newsblog_tag }}</h1>
-    {% endif %}
+  {% if newsblog_category %}
+    <h1>{{ newsblog_category }}</h1>
+  {% elif newsblog_tag %}
+    <h1>{{ newsblog_tag }}</h1>
+  {% endif %}
 
-    {% for article in article_list %}
-        {% include "aldryn_newsblog/includes/article.html" %}
-        <br>
-    {% empty %}
-        <h2>{% trans "No items found." %}</h2>
-    {% endfor %}
+  {% for article in article_list %}
+    {% include "aldryn_newsblog/includes/article.html" %}
+    <br>
+  {% empty %}
+    <h2>{% trans "No items found" %}</h2>
+  {% endfor %}
 
-    {% include "aldryn_newsblog/includes/pagination.html" %}
+  {% include "aldryn_newsblog/includes/pagination.html" %}
 {% endblock %}

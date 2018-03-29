@@ -1,10 +1,10 @@
 {% load i18n %}
 <div class="plugin">
-    {# submission of this form will forward to "includes/search_results.html" #}
-    {# this form can also be submitted using ajax and "includes/search_results.html" is returned #}
-    <form class="form-inline my-2 my-lg-0 blog-search-form" action="{{ query_url }}" method="get">
-        <input type="hidden" name="max_articles" value="{{ instance.max_articles }}">
-        <input class="form-control mr-sm-2 search-input" name="q" placeholder="{% trans 'Search' %}" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">{% trans 'Search' %}</button>
-    </form>
+  {# submission of this form will forward to "includes/search_results.html" #}
+  {# this form can also be submitted using ajax and "includes/search_results.html" is returned #}
+  <form class="form-inline my-2 my-lg-0 blog-search-form" action="{{ query_url }}" method="get">
+    <input type="hidden" name="max_articles" value="{{ instance.max_articles }}">
+    <input class="form-control mr-sm-2 search-input" name="q" placeholder="{% trans "Search" %}" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">{% trans "Search" %}</button>
+  </form>
 </div>

@@ -2,21 +2,21 @@
 {% load i18n apphooks_config_tags %}
 
 {% block newsblog_content %}
-    <ul class="blog-search-results">
-        {% if not query %}
-            <h3>{% trans "Enter a query above" %}</h3>
-        {% else %}
-            <h3>{% blocktrans with query=query %}Most recent posts containing "<strong>{{ query }}</strong>"{% endblocktrans %}</h3>
-            {% for article in object_list %}
-                <li{% if not article.is_published %} class="unpublished"{% endif %}>
-                    <a href="{% namespace_url "article-detail" article.slug namespace=view.app_config.namespace default='' %}">
-                        {{ article.title }}<br />
-                        {{ article.lead_in|striptags|truncatewords:"15"|safe }}
-                    </a>
-                </li>
-            {% empty %}
-                <p>{% blocktrans with query=query %}No posts found{% endblocktrans %}</p>
-            {% endfor %}
-        {% endif %}
-    </ul>
+  <ul class="blog-search-results">
+    {% if not query %}
+      <h3>{% trans "Enter a query above" %}</h3>
+    {% else %}
+      <h3>{% blocktrans with query=query %}Results for "<strong>{{ query }}</strong>"{% endblocktrans %}</h3>
+      {% for article in object_list %}
+        <li {% if not article.is_published %}class="unpublished"{% endif %}>
+          <a href="{% namespace_url "article-detail" article.slug namespace=view.app_config.namespace default="" %}">
+            {{ article.title }}<br/>
+            {{ article.lead_in|striptags|truncatewords:"15"|safe }}
+          </a>
+        </li>
+      {% empty %}
+        <p>{% blocktrans with query=query %}No posts found{% endblocktrans %}</p>
+      {% endfor %}
+    {% endif %}
+  </ul>
 {% endblock %}

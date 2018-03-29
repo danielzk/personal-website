@@ -79,7 +79,7 @@ p {
     }
   }
 
-  .blog-sidebar {
+  #blog-sidebar {
     ul {
       margin-left: 40px;
     }
@@ -95,7 +95,7 @@ p {
       }
     }
 
-    .plugin.latest-articles {
+    .plugin.plugin-articles {
       margin-bottom: 15px;
       .article-min a {
         display: block;

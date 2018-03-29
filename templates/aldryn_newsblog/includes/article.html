@@ -1,62 +1,61 @@
 {% load i18n staticfiles thumbnail cms_tags apphooks_config_tags utils %}
 
-<article class="article main
-    {% if article.is_featured %} featured{% endif %}
-    {% if not article.published %} unpublished{% endif %}"
-  >
-    {% if not detail_view %}
-        <h2 class="article-title">
-            <a href="{{ article.get_absolute_url }}">{% render_model article "title" %}</a>
-        </h2>
-    {% else %}
-        <h1 class="article-title">
-            {% render_model article "title" %}
-        </h1>
-    {% endif %}
+<article
+  class="article main {% if article.is_featured %}featured{% endif %} {% if not article.published %}unpublished{% endif %}"
+>
+  {% if not detail_view %}
+    <h2 class="article-title">
+      <a href="{{ article.get_absolute_url }}">{% render_model article "title" %}</a>
+    </h2>
+  {% else %}
+    <h1 class="article-title">{% render_model article "title" %}</h1>
+  {% endif %}
 
-    <div class="article-meta top">
-        <p>
-            {{ article.publishing_date.date }}
-        </p>
+  <div class="article-meta top">
+    <p>{{ article.publishing_date.date }}</p>
+  </div>
+
+  {% if article.featured_image_id %}
+    <p>
+      <img
+        src="{{ article.featured_image.url }}"
+        alt="{{ article.featured_image.alt }}"
+        width="{{ article.featured_image.width }}"
+        height="{{ article.featured_image.height }}"
+        class="img-fluid featured-image"
+      >
+    </p>
+  {% endif %}
+
+  {% render_model article "lead_in" "" "" "safe" %}
+
+  {% if detail_view %}
+    {% render_placeholder article.content language placeholder_language %}
+
+    <div class="article-meta bottom">
+        {% if article.categories.exists %}
+          <span>
+            <i class="fas fa-folder-open" aria-hidden="true"></i>
+            {% for category in article.categories.all %}
+              <a href="{% namespace_url "article-list-by-category" category.slug namespace=namespace default="" %}">
+                {{ category.name }}
+              </a>{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+          </span>
+        {% endif %}
+
+        {% if article.tags.exists %}
+          <span>
+            <i class="fas fa-tags" aria-hidden="true"></i>
+            {% for tag in article.tags.all %}
+              <a href="{% namespace_url "article-list-by-tag" tag=tag.slug namespace=namespace default="" %}">
+                {{ tag.name }}
+              </a>{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+          </span>
+        {% endif %}
     </div>
-
-    {% if article.featured_image_id %}
-        <p>
-          <img
-            src="{{ article.featured_image.url }}"
-            alt="{{ article.featured_image.alt }}"
-            width="{{ article.featured_image.width }}"
-            height="{{ article.featured_image.height }}"
-            class="img-fluid featured-image">
-        </p>
-    {% endif %}
-
-    {% render_model article "lead_in" "" "" "safe" %}
-
-    {% if detail_view %}
-        {% render_placeholder article.content language placeholder_language %}
-
-        <div class="article-meta bottom">
-              {% if article.categories.exists %}
-                  <span>
-                      <i class="fas fa-folder-open" aria-hidden="true"></i>
-                      {% for category in article.categories.all %}
-                          <a href="{% namespace_url 'article-list-by-category' category.slug namespace=namespace default='' %}">{{ category.name }}</a>{% if not forloop.last %}, {% endif %}
-                      {% endfor %}
-                  </span>
-              {% endif %}
-
-              {% if article.tags.exists %}
-                  <span>
-                      <i class="fas fa-tags" aria-hidden="true"></i>
-                      {% for tag in article.tags.all %}
-                          <a href="{% namespace_url 'article-list-by-tag' tag=tag.slug namespace=namespace default='' %}">{{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
-                      {% endfor %}
-                  </span>
-              {% endif %}
-            </p>
-        </div>
-    {% else %}
-        <a href="{{ article.get_absolute_url }}" class="btn btn-primary">{% trans 'Continue reading' %}</a>
-    {% endif %}
+  {% else %}
+    <a href="{{ article.get_absolute_url }}" class="btn btn-primary">{% trans "Continue reading" %}</a>
+  {% endif %}
 </article>

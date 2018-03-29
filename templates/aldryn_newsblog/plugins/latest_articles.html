@@ -1,20 +1,17 @@
 {% load i18n cms_tags utils %}
-<div class="card plugin latest-articles">
-    <div class="card-header">
-        {% trans 'Latest posts' %}
-    </div>
-    <div class="card-body">
-        {% for article in article_list %}
-            <article class="article article-min
-                {% if article.is_featured %} featured{% endif %}
-                {% if not article.published %} unpublished{% endif %}">
 
-                <a href="{{ article.get_absolute_url }}">
-                    {% render_model article "title" %}
-                </a>
-            </article>
-        {% empty %}
-            <p>{% trans "No items found." %}</p>
-        {% endfor %}
-    </div>
+<div class="card plugin plugin-articles">
+  <div class="card-header">{% trans 'Latest posts' %}</div>
+  <div class="card-body">
+    {% for article in article_list %}
+      <article class="article article-min
+        {% if article.is_featured %} featured{% endif %}
+        {% if not article.published %} unpublished{% endif %}"
+      >
+        <a href="{{ article.get_absolute_url }}">{% render_model article "title" %}</a>
+      </article>
+    {% empty %}
+      <p>{% trans "No items found" %}</p>
+    {% endfor %}
+  </div>
 </div>

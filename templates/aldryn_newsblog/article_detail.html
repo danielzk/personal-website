@@ -1,79 +1,77 @@
 {% extends "aldryn_newsblog/base.html" %}
 {% load i18n cms_tags apphooks_config_tags sekizai_tags social_share utils %}
 
-{% block title %}{% spaceless %}
-    {{ article.title }}
-{% endspaceless %}{% endblock %}
+{% block title %}{{ article.title }}{% endblock %}
 
-{% block meta_description %}{% spaceless %}
-    {{ article.meta_description }}
-{% endspaceless %}{% endblock %}
+{% block meta_description %}{{ article.meta_description }}{% endblock %}
 
 {% block newsblog_content %}
-    {% include "aldryn_newsblog/includes/article.html" with detail_view="true" %}
+  {% include "aldryn_newsblog/includes/article.html" with detail_view="true" %}
 
-    {% static_placeholder "newsblog_social" %}
+  <ul class="pagination justify-content-center mb-4">
+    <li class="page-item {% if not prev_article %}disabled{% endif %}">
+      <a href="{% if prev_article %}{{ prev_article.get_absolute_url }}{% endif %}" class="page-link">
+        &laquo; {% trans "Previous post" %}
+      </a>
+    </li>
+    <li class="page-item {% if not next_article %}disabled{% endif %}">
+      <a href="{% if next_article %}{{ next_article.get_absolute_url }}{% endif %}" class="page-link">
+        {% trans "Next post" %} &raquo;
+      </a>
+    </li>
+  </ul>
 
-    <ul class="pagination justify-content-center mb-4">
-        <li class="page-item {% if not prev_article %}disabled{% endif %}">
-          <a href="{% if prev_article %}{{ prev_article.get_absolute_url }}{% endif %}" class="page-link">&laquo; {% trans "Previous post" %}</a>
-        </li>
-        <li class="page-item {% if not next_article %}disabled{% endif %}">
-          <a href="{% if next_article %}{{ next_article.get_absolute_url }}{% endif %}" class="page-link">{% trans "Next post" %} &raquo;</a>
-        </li>
-    </ul>
+  <div class="share">
+    {% trans "Daniel Ramos published a new post:" as twitter_text_to_post %}
 
-    <div class="share">
-        {% trans 'Daniel Ramos published a new post:' as twitter_text_to_post %}
+    {% post_to_facebook_url article.get_absolute_url as updated_context %}
+    {% post_to_twitter_url twitter_text_to_post article.get_absolute_url as updated_context %}
+    {% post_to_gplus_url article.get_absolute_url as updated_context %}
 
-        {% post_to_facebook_url article.get_absolute_url as updated_context %}
-        {% post_to_twitter_url twitter_text_to_post article.get_absolute_url as updated_context %}
-        {% post_to_gplus_url article.get_absolute_url as updated_context %}
+    <h4 class="title">{% trans "Share:" %}</h4>
 
-        <h4 class="title">{% trans 'Share:' %}</h4>
-
-        <div class="facebook-this">
-            <a href="{{ facebook_url }}" target="_blank" class="btn btn-default btn-lg">
-                <i class="fab fa-facebook-f"></i> Facebook
-            </a>
-        </div>
-
-        <div class="tweet-this">
-            <a href="{{ tweet_url }}" class="meta-act-link meta-tweet btn btn-default btn-lg" target="_blank">
-                <i class="fab fa-twitter" aria-hidden="true"></i> Twitter
-            </a>
-        </div>
-
-        <div class="gplus-this">
-            <a href="{{ gplus_url }}" target="_blank" class="btn btn-default btn-lg">
-                <i class="fab fa-google-plus-g" aria-hidden="true"></i> Google+
-            </a>
-        </div>
+    <div class="facebook-this">
+      <a href="{{ facebook_url }}" target="_blank" class="btn btn-default btn-lg">
+        <i class="fab fa-facebook-f"></i> Facebook
+      </a>
     </div>
 
-    <div id="disqus_thread"></div>
+    <div class="tweet-this">
+      <a href="{{ tweet_url }}" class="meta-act-link meta-tweet btn btn-default btn-lg" target="_blank">
+        <i class="fab fa-twitter" aria-hidden="true"></i> Twitter
+      </a>
+    </div>
 
-    {% addtoblock 'js' %}
-        {% get_settings 'DISQUS_DOMAIN' as DISQUS_DOMAIN %}
-        {% get_settings 'DISQUS_SHORTNAME' as DISQUS_SHORTNAME %}
-        {% if DISQUS_DOMAIN and DISQUS_SHORTNAME %}
-            <script>
-                var PAGE_URL = '{{ DISQUS_DOMAIN }}' + '{{ article.get_absolute_url }}';
-                var PAGE_IDENTIFIER = 'blog' + '{{ article.id }}';
+    <div class="gplus-this">
+      <a href="{{ gplus_url }}" target="_blank" class="btn btn-default btn-lg">
+        <i class="fab fa-google-plus-g" aria-hidden="true"></i> Google+
+      </a>
+    </div>
+  </div>
 
-                var disqus_config = function () {
-                    this.page.url = PAGE_URL;
-                    this.page.identifier = PAGE_IDENTIFIER;
-                };
+  <div id="disqus_thread"></div>
 
-                (function() { // DON'T EDIT BELOW THIS LINE
-                    var d = document, s = d.createElement('script');
-                    s.src = '//{{ DISQUS_SHORTNAME }}.disqus.com/embed.js';
-                    s.setAttribute('data-timestamp', +new Date());
-                    (d.head || d.body).appendChild(s);
-                })();
-            </script>
-            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-        {% endif %}
-    {% endaddtoblock %}
+  {% addtoblock "js" %}
+    {% get_settings "DISQUS_DOMAIN" as DISQUS_DOMAIN %}
+    {% get_settings "DISQUS_SHORTNAME" as DISQUS_SHORTNAME %}
+    {% if DISQUS_DOMAIN and DISQUS_SHORTNAME %}
+      <script>
+        var PAGE_URL = '{{ DISQUS_DOMAIN }}' + '{{ article.get_absolute_url }}';
+        var PAGE_IDENTIFIER = 'blog' + '{{ article.id }}';
+
+        var disqus_config = function () {
+          this.page.url = PAGE_URL;
+          this.page.identifier = PAGE_IDENTIFIER;
+        };
+
+        (function() { // DON'T EDIT BELOW THIS LINE
+          var d = document, s = d.createElement('script');
+          s.src = '//{{ DISQUS_SHORTNAME }}.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    {% endif %}
+  {% endaddtoblock %}
 {% endblock %}
