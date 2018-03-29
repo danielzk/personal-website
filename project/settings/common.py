@@ -29,8 +29,8 @@ INTERNAL_IPS = (
 )
 SITE_ID = 1
 
-PROJECT_ALIAS = 'project'
-PROJECT_DISPLAY_NAME = 'Project'
+PROJECT_ALIAS = 'danielrz'
+PROJECT_DISPLAY_NAME = 'danielrz.com'
 
 INSTALLED_APPS = [
     'djangocms_admin_style',
