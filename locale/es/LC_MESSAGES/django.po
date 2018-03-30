@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-29 12:40+0000\n"
+"POT-Creation-Date: 2018-03-30 08:19+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,27 +55,23 @@ msgstr "Creado el"
 msgid "Updated at"
 msgstr "Actualizado el"
 
-#: project/settings/common.py:171
-msgid "English"
-msgstr "Inglés"
-
-#: project/settings/common.py:172
+#: project/settings/common.py:184
 msgid "Spanish"
 msgstr "Español"
 
-#: templates/aldryn_newsblog/article_detail.html:14
+#: templates/aldryn_newsblog/article_detail.html:13
 msgid "Previous post"
 msgstr "Post anterior"
 
-#: templates/aldryn_newsblog/article_detail.html:19
+#: templates/aldryn_newsblog/article_detail.html:16
 msgid "Next post"
 msgstr "Siguiente post"
 
-#: templates/aldryn_newsblog/article_detail.html:25
+#: templates/aldryn_newsblog/article_detail.html:21
 msgid "Daniel Ramos published a new post:"
 msgstr "Daniel Ramos publicó un nuevo post:"
 
-#: templates/aldryn_newsblog/article_detail.html:31
+#: templates/aldryn_newsblog/article_detail.html:27
 msgid "Share:"
 msgstr "Compartir"
 
@@ -90,7 +86,11 @@ msgstr "Compartir"
 msgid "No items found"
 msgstr "No hay elementos"
 
-#: templates/aldryn_newsblog/includes/article.html:59
+#: templates/aldryn_newsblog/base.html:19
+msgid "Advertising"
+msgstr "Publicidad"
+
+#: templates/aldryn_newsblog/includes/article.html:55
 msgid "Continue reading"
 msgstr "Seguir leyendo"
 
@@ -104,8 +104,8 @@ msgid "Results for \"<strong>%(query)s</strong>\""
 msgstr "Resultados para \"<strong>%(query)s</strong>\""
 
 #: templates/aldryn_newsblog/includes/search_results.html:18
-msgid "No posts found"
-msgstr "No se encontraron posts"
+msgid "No results found"
+msgstr "No se encontraron resultados"
 
 #: templates/aldryn_newsblog/plugins/archive.html:8
 msgid "Archive"
@@ -181,3 +181,6 @@ msgstr "Anterior"
 #: templates/includes/pagination.html:49
 msgid "Next"
 msgstr "Siguiente"
+
+#~ msgid "English"
+#~ msgstr "Inglés"
