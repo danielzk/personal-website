@@ -1,4 +1,4 @@
-{% load static i18n webpack_loader cms_tags sekizai_tags utils %}
+{% load static i18n webpack_loader cms_tags sekizai_tags compress utils %}
 {% get_current_language as LANGUAGE_CODE %}
 {% get_settings 'LOAD_EXTERNAL_FILES' as LOAD_EXTERNAL_FILES %}
 <!DOCTYPE html>
@@ -29,21 +29,27 @@
   {% render_block 'css' %}
   {% block extra_css %}{% endblock %}
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116579378-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-116579378-1');
-  </script>
+  {% if LOAD_EXTERNAL_FILES %}
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116579378-1"></script>
+    {% compress js inline %}
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-116579378-1');
+      </script>
+    {% endcompress %}
 
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-6941977918018258",
-      enable_page_level_ads: true
-    });
-  </script>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    {% compress js inline %}
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-6941977918018258",
+          enable_page_level_ads: true
+        });
+      </script>
+    {% endcompress %}
+  {% endif %}
 </head>
 <body id="{% block body_id %}default{% endblock %}" class="{% block body_class %}default{% endblock %}">
   {% cms_toolbar %}

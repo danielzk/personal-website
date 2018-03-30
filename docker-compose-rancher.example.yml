@@ -11,7 +11,7 @@ services:
       - web
   web:
     image: danielrz/personal-website:latest
-    entrypoint: bash -c "cp -r install/nginx/conf.d/default.conf /nginx/ && npm run build --prefix=frontend && python manage.py collectstatic --noinput && python manage.py migrate && gunicorn --bind unix:/gunicorn/project.sock project.wsgi"
+    entrypoint: bash -c "cp -r install/nginx/conf.d/default.conf /nginx/ && npm run build --prefix=frontend && python manage.py compress && python manage.py collectstatic --noinput && python manage.py migrate && gunicorn --bind unix:/gunicorn/project.sock project.wsgi"
     volumes:
       - gunicorn:/gunicorn/
       - nginx:/nginx/

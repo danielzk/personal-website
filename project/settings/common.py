@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 
     'debug_toolbar',
     'hijack',
+    'compressor',
 
     'webpack_loader',
     'widget_tweaks',
@@ -74,6 +75,12 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'cms.middleware.utils.ApphookReloadMiddleware',
+]
+
+if not DEBUG:
+    MIDDLEWARE += ['whitenoise.middleware.WhiteNoiseMiddleware']
+
+MIDDLEWARE += [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -121,7 +128,14 @@ ALLOWABLE_TEMPLATE_SETTINGS = (
     'DISQUS_SHORTNAME',
 )
 
+
+# =============================================================================
+# Minify
+# =============================================================================
+
 HTML_MINIFY = not DEBUG
+COMPRESS_ENABLED = not DEBUG
+COMPRESS_OFFLINE = True
 
 
 # =============================================================================
@@ -191,6 +205,12 @@ STATICFILES_DIRS = [
     root('frontend/.build'),
 ]
 
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+)
+
 AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
 if AWS_ACCESS_KEY_ID:
     AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
@@ -213,8 +233,6 @@ else:
     MEDIA_ROOT = live_dir('media')
     MEDIA_URL = '/media/'
 
-    if not DEBUG:
-        MIDDLEWARE += 'whitenoise.middleware.WhiteNoiseMiddleware',
 
 WEBPACK_LOADER = {
     'DEFAULT': {
