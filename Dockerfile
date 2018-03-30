@@ -13,6 +13,6 @@ RUN apt-get install -y gettext libgettextpo-dev
 WORKDIR /app
 ADD . /app
 RUN pip install -r requirements/prod.txt  --default-timeout 450
-RUN python manage.py compilemessages
+RUN python manage.py compilemessages --use-fuzzy
 
 EXPOSE 8000
