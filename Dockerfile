@@ -11,5 +11,6 @@ RUN mkdir -p /app/frontend && cp -a /tmp/node_modules /app/frontend
 WORKDIR /app
 ADD . /app
 RUN pip install -r requirements/prod.txt  --default-timeout 450
+RUN python manage.py compilemessages
 
 EXPOSE 8000
