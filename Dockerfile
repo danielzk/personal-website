@@ -8,6 +8,8 @@ ADD frontend/package.json /tmp/package.json
 RUN cd /tmp && npm install
 RUN mkdir -p /app/frontend && cp -a /tmp/node_modules /app/frontend
 
+RUN apt-get install -y gettext libgettextpo-dev
+
 WORKDIR /app
 ADD . /app
 RUN pip install -r requirements/prod.txt  --default-timeout 450
