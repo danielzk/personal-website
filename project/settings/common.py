@@ -226,6 +226,9 @@ if AWS_ACCESS_KEY_ID:
     MEDIA_URL = 'https://s3.amazonaws.com/{}/{}/'.format(
         AWS_STORAGE_BUCKET_NAME, MEDIAFILES_LOCATION)
     DEFAULT_FILE_STORAGE = 'project.storages.MediaStorage'
+
+    COMPRESS_URL = STATIC_URL
+    COMPRESS_STORAGE = STATICFILES_STORAGE
 else:
     STATIC_ROOT = live_dir('static')
     STATIC_URL = '/static/'
