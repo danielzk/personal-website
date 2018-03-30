@@ -229,6 +229,7 @@ if AWS_ACCESS_KEY_ID:
 
     COMPRESS_URL = STATIC_URL
     COMPRESS_STORAGE = STATICFILES_STORAGE
+    COMPRESS_ROOT = live_dir('static')
 else:
     STATIC_ROOT = live_dir('static')
     STATIC_URL = '/static/'
