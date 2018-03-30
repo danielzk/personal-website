@@ -74,7 +74,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'cms.middleware.utils.ApphookReloadMiddleware',
-    'utils.middleware.LangMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -161,14 +160,13 @@ LOGIN_REDIRECT_URL = '/'
 # i18n/l10n
 # =============================================================================
 
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'es'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
 LANGUAGES = [
-    ('en', _('English')),
     ('es', _('Spanish')),
 ]
 
@@ -176,7 +174,6 @@ LOCALE_PATHS = [root('locale')]
 
 PARLER_LANGUAGES = {
     SITE_ID: (
-        {'code': 'en',},
         {'code': 'es',},
     ),
     'default': {
