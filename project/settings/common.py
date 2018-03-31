@@ -175,7 +175,7 @@ LOGIN_REDIRECT_URL = '/'
 # =============================================================================
 
 LANGUAGE_CODE = 'es'
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Asuncion'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
