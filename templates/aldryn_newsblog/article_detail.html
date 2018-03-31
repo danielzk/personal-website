@@ -26,23 +26,19 @@
 
     <h4 class="title">{% trans "Share:" %}</h4>
 
-    <div class="facebook-this">
-      <a href="{{ facebook_url }}" target="_blank" class="btn btn-default btn-lg">
+    {% spaceless %}
+      <a href="{{ facebook_url }}" class="btn btn-default btn-lg facebook-this" target="_blank">
         <i class="fab fa-facebook-f"></i> Facebook
       </a>
-    </div>
 
-    <div class="tweet-this">
-      <a href="{{ tweet_url }}" class="meta-act-link meta-tweet btn btn-default btn-lg" target="_blank">
+      <a href="{{ tweet_url }}" class="meta-act-link meta-tweet btn btn-default btn-lg tweet-this" target="_blank">
         <i class="fab fa-twitter" aria-hidden="true"></i> Twitter
       </a>
-    </div>
 
-    <div class="gplus-this">
-      <a href="{{ gplus_url }}" target="_blank" class="btn btn-default btn-lg">
+      <a href="{{ gplus_url }}" class="btn btn-default btn-lg gplus-this" target="_blank" >
         <i class="fab fa-google-plus-g" aria-hidden="true"></i> Google+
       </a>
-    </div>
+    {% endspaceless %}
   </div>
 
   <div id="disqus_thread"></div>

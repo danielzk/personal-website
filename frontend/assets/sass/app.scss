@@ -136,16 +136,18 @@ p {
   .title {
     font-size: 24px;
   }
-  div[class$='this'] {
-    display: inline-block;
-  }
   a {
+    display: inline-block;
     margin-bottom: 20px;
+    margin-right: 4px;
+    &:last-child {
+      margin-right: 0;
+    }
   }
   a, a:hover, a:focus, a:active {
     color: #fff;
   }
-  .facebook-this a {
+  .facebook-this {
     background: $facebook;
     border: 1px solid darken($facebook, 5%);
     &:hover, &:focus, &:active {
@@ -156,7 +158,7 @@ p {
       border: 1px solid darken($facebook, 15%);
     }
   }
-  .tweet-this a {
+  .tweet-this {
     background: $twitter;
     border: 1px solid darken($twitter, 5%);
     &:hover, &:focus, &:active {
@@ -167,7 +169,7 @@ p {
       border: 1px solid darken($twitter, 15%);
     }
   }
-  .gplus-this a {
+  .gplus-this {
     background: $googleplus;
     border: 1px solid darken($googleplus, 5%);
     &:hover, &:focus, &:active {
