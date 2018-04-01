@@ -4,6 +4,7 @@ from django import template
 from django.conf import settings
 from django.forms import ChoiceField, FileField, MultipleChoiceField
 from django.utils.translation import get_language_info as dj_get_language_info
+from django.utils.translation import ugettext_lazy as _
 
 # TODO: write tests.
 
@@ -116,3 +117,27 @@ def field_display_value(field):
 @register.filter
 def subtract(value, arg):
     return int(value) - int(arg)
+
+
+@register.simple_tag(takes_context=True)
+def article_list_title(context):
+    newsblog_category = context.get('newsblog_category', None)
+    newsblog_tag = context.get('newsblog_tag', None)
+    newsblog_archive_date = context.get('newsblog_archive_date', None)
+
+    title_template = '{}: {}'
+    title = ''
+    if newsblog_category:
+        title = title_template.format(_('Category'), str(newsblog_category))
+    elif newsblog_tag:
+        title = title_template.format(_('Tag'), str(newsblog_tag))
+    elif newsblog_archive_date:
+        date = context.get('newsblog_year')
+        if context.get('newsblog_day', None):
+            date = newsblog_archive_date.strftime('%Y-%m-%d')
+        elif context.get('newsblog_month', None):
+            date = newsblog_archive_date.strftime('%Y-%m')
+
+        title = title_template.format(_('Archive'), date)
+
+    return title
