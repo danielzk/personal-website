@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-30 08:19+0000\n"
+"POT-Creation-Date: 2018-04-01 08:21-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,6 +55,19 @@ msgstr "Creado el"
 msgid "Updated at"
 msgstr "Actualizado el"
 
+#: apps/utils/templatetags/utils.py:131
+msgid "Category"
+msgstr "Categoría"
+
+#: apps/utils/templatetags/utils.py:133
+msgid "Tag"
+msgstr "Etiqueta"
+
+#: apps/utils/templatetags/utils.py:141
+#: templates/aldryn_newsblog/plugins/archive.html:8
+msgid "Archive"
+msgstr "Archivo"
+
 #: project/settings/common.py:184
 msgid "Spanish"
 msgstr "Español"
@@ -75,7 +88,7 @@ msgstr "Daniel Ramos publicó un nuevo post:"
 msgid "Share:"
 msgstr "Compartir"
 
-#: templates/aldryn_newsblog/article_list.html:15
+#: templates/aldryn_newsblog/article_list.html:21
 #: templates/aldryn_newsblog/plugins/archive.html:29
 #: templates/aldryn_newsblog/plugins/authors.html:10
 #: templates/aldryn_newsblog/plugins/categories.html:18
@@ -86,30 +99,28 @@ msgstr "Compartir"
 msgid "No items found"
 msgstr "No hay elementos"
 
-#: templates/aldryn_newsblog/base.html:19
-msgid "Advertising"
-msgstr "Publicidad"
-
-#: templates/aldryn_newsblog/includes/article.html:55
+#: templates/aldryn_newsblog/includes/article.html:61
 msgid "Continue reading"
 msgstr "Seguir leyendo"
 
-#: templates/aldryn_newsblog/includes/search_results.html:7
-msgid "Enter a query above"
-msgstr "Ingrese una consulta arriba"
+#: templates/aldryn_newsblog/includes/search_results.html:6
+#: templates/aldryn_newsblog/includes/search_results.html:15
+msgid "Enter a query"
+msgstr "Ingrese una consulta"
 
-#: templates/aldryn_newsblog/includes/search_results.html:9
+#: templates/aldryn_newsblog/includes/search_results.html:8
+#, fuzzy, python-format
+msgid "Results for \"%(query)s\""
+msgstr "Resultados para \"%(query)s\""
+
+#: templates/aldryn_newsblog/includes/search_results.html:17
 #, fuzzy, python-format
 msgid "Results for \"<strong>%(query)s</strong>\""
 msgstr "Resultados para \"<strong>%(query)s</strong>\""
 
-#: templates/aldryn_newsblog/includes/search_results.html:18
+#: templates/aldryn_newsblog/includes/search_results.html:26
 msgid "No results found"
 msgstr "No se encontraron resultados"
-
-#: templates/aldryn_newsblog/plugins/archive.html:8
-msgid "Archive"
-msgstr "Archivo"
 
 #: templates/aldryn_newsblog/plugins/article_search.html:7
 #: templates/aldryn_newsblog/plugins/article_search.html:8
@@ -181,6 +192,9 @@ msgstr "Anterior"
 #: templates/includes/pagination.html:49
 msgid "Next"
 msgstr "Siguiente"
+
+#~ msgid "Advertising"
+#~ msgstr "Publicidad"
 
 #~ msgid "English"
 #~ msgstr "Inglés"
