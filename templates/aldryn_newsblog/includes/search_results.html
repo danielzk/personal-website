@@ -1,10 +1,18 @@
 {% extends "aldryn_newsblog/base.html" %}
-{% load i18n apphooks_config_tags %}
+{% load i18n cms_tags apphooks_config_tags %}
+
+{% block title %}{% spaceless %}
+  {% if not query %}
+    {% trans "Enter a query" %} - {% page_attribute "page_title" %}
+  {% else %}
+    {% blocktrans with query=query %}Results for "{{ query }}"{% endblocktrans %} - {% page_attribute "page_title" %}
+  {% endif %}
+{% endspaceless %}{% endblock %}
 
 {% block newsblog_content %}
   <ul class="blog-search-results">
     {% if not query %}
-      <h3>{% trans "Enter a query above" %}</h3>
+      <h3>{% trans "Enter a query" %}</h3>
     {% else %}
       <h3>{% blocktrans with query=query %}Results for "<strong>{{ query }}</strong>"{% endblocktrans %}</h3>
       {% for article in object_list %}
