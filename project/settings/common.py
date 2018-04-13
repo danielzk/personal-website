@@ -289,6 +289,8 @@ CMS_TEMPLATES = [
 
 HIGHLIGHT_THEMES = (
     ('androidstudio', 'Android Studio'),
+    ('tomorrow-night-eighties', 'Tomorrow Night Eighties'),
+    ('atom-one-dark', 'Atom One Dark'),
 )
 
 
