@@ -81,17 +81,13 @@ p {
 
   #blog-sidebar {
     ul {
-      margin-left: 40px;
-    }
-    ul li {
-      list-style: square;
-      color: $gray-600;
+      margin-left: 20px;
     }
 
     .card {
       margin-bottom: 15px;
       .card-body > ul {
-        margin-left: 20px;
+        margin-left: 0;
       }
     }
 
@@ -112,6 +108,13 @@ p {
       li {
         display: inline-block;
         margin: 0 4px 5px 0;
+        a {
+          background: $gray-200;
+          color: $gray-700;
+          &:hover {
+            background: $gray-400;
+          }
+        }
       }
     }
 
@@ -192,4 +195,9 @@ p {
 .highlight-js .filename {
   font-weight: normal;
   font-style: italic;
+}
+
+.hljs {
+  border-radius: 3px;
+  padding: 1rem !important;
 }
