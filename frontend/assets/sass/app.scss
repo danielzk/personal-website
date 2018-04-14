@@ -39,7 +39,7 @@ p {
 }
 
 .main-content {
-  padding-top: 15px;
+  padding-top: 1rem;
 }
 
 #page-footer {
@@ -57,7 +57,6 @@ p {
 .rss-link {
   color: $orange;
   display: inline-block;
-  margin-bottom: 15px;
   &:hover {
     color: $orange;
   }
@@ -65,7 +64,15 @@ p {
 
 #blog {
   .article.main {
-    margin-bottom: 15px;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    .article-title {
+      margin-top: 0;
+      padding-top: 0;
+    }
+    &:first-child {
+      padding-top: 0;
+    }
   }
 
   .article-meta {
@@ -79,14 +86,31 @@ p {
     }
   }
 
+  #blog-content {
+    padding-right: 1.5rem;
+    .article-list .article.main {
+      border-bottom: 1px solid $gray-200;
+    }
+  }
+
   #blog-sidebar {
+    border: 1px solid $gray-200;
+    padding: 1.5rem;
+
     ul {
       margin-left: 20px;
     }
 
-    .card {
-      margin-bottom: 15px;
-      .card-body > ul {
+    .plugin, .section {
+      border-bottom: 1px solid $gray-200;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      .header {
+        color: $gray-700;
+        margin-bottom: 1rem;
+        font-weight: bold;
+      }
+      .body > ul {
         margin-left: 0;
       }
     }

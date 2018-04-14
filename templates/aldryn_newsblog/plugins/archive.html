@@ -3,11 +3,11 @@
 {% regroup dates by date.year as years %}
 {% with current_year=year current_month=month %}
 
-<div class="card plugin">
-  <div class="card-header">
+<div class="plugin">
+  <div class="header">
     {% trans "Archive" %}
   </div>
-  <div class="card-body">
+  <div class="body">
     <ul>
       {% for year in years %}
         <li>

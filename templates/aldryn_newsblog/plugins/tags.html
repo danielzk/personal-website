@@ -1,10 +1,10 @@
 {% load i18n apphooks_config_tags %}
 
-<div class="card plugin blog-tags">
-  <div class="card-header">
+<div class="plugin blog-tags">
+  <div class="header">
     {% trans "Tags" %}
   </div>
-  <div class="card-body">
+  <div class="body">
     <ul>{% spaceless %}
       {% for tag in tags %}
         {% if tag.name %}

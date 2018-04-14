@@ -1,8 +1,8 @@
 {% load i18n cms_tags utils %}
 
-<div class="card plugin plugin-articles">
-  <div class="card-header">{% trans 'Latest posts' %}</div>
-  <div class="card-body">
+<div class="plugin plugin-articles">
+  <div class="header">{% trans 'Latest posts' %}</div>
+  <div class="body">
     {% for article in article_list %}
       <article class="article article-min
         {% if article.is_featured %} featured{% endif %}
