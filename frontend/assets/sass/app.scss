@@ -216,12 +216,21 @@ p {
   }
 }
 
-.highlight-js .filename {
-  font-weight: normal;
-  font-style: italic;
-}
-
-.hljs {
-  border-radius: 3px;
-  padding: 1rem !important;
+.highlight-js {
+  & > :first-child {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  }
+  .filename {
+    background: $gray-300;
+    display: block;
+    font-weight: normal;
+    font-style: normal;
+    padding: 5px 5px 3px 9px;
+  }
+  .hljs {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    padding: 1rem !important;
+  }
 }
