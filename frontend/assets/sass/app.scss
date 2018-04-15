@@ -87,9 +87,11 @@ p {
   }
 
   #blog-content {
-    padding-right: 1.5rem;
     .article-list .article.main {
       border-bottom: 1px solid $gray-200;
+    }
+    @include media-breakpoint-up(md) {
+      padding-right: 1.5rem;
     }
   }
 
