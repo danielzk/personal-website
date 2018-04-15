@@ -17,4 +17,4 @@ class Message(BaseModel):
         words = self.message.split()
         if len(words) > 10:
             return ' '.join(words[:10]) + ' ...'
-        return message
+        return self.message
