@@ -14,5 +14,6 @@ WORKDIR /app
 ADD . /app
 RUN pip install -r requirements/prod.txt  --default-timeout 450
 RUN python manage.py compilemessages --use-fuzzy
+RUN cd /app/frontend && npm run build
 
 EXPOSE 8000
